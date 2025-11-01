@@ -20,8 +20,7 @@ It explores how user-constructed circuits can be evaluated and visualized entire
 
 ## Core Features
 
-- **Drag-and-Drop Circuit Design** – Intuitive canvas interface for placing and connecting gates.  
-- **Dynamic Wire Connections** – Real-time visual feedback with validation of connection rules.  
+- **Drag-and-Drop Circuit Design** – Intuitive canvas interface for placing and connecting gates.   
 - **Signal Tracing** – Selecting an output highlights all contributing ancestor gates.  
 - **Automatic Truth Table Generation** – Calculates truth tables from the current circuit topology.  
 - **Responsive Layout** – Built with Tailwind for fast rendering and adaptability.
@@ -33,7 +32,6 @@ It explores how user-constructed circuits can be evaluated and visualized entire
 ### Frontend
 - **React + TypeScript** for componentized logic and strong typing.  
 - **Tailwind CSS** for design consistency and performance.  
-- **Custom Canvas Rendering Engine** for gate positioning and wire drawing.
 
 ### Logic Engine
 - Represents components as nodes linked through dependency mappings between sources and dependents.
