@@ -1,69 +1,49 @@
-# React + TypeScript + Vite
+# Logic Circuit Simulator – Interactive Digital Logic Playground
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser-based simulator for designing and analyzing digital logic circuits.  
+Built with **TypeScript**, **React**, and **Tailwind CSS**, it enables drag-and-drop gate placement, real-time wiring, and automatic truth-table generation.
 
-Currently, two official plugins are available:
+> **Status:** In active development.  
+> Core functionality (gate interaction, wire connection, and truth-table generation) is implemented, while performance tuning and logic-propagation stability are currently being refined.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The simulator models the behavior of basic logic gates — **AND**, **OR**, **NOT**, **XOR**, and more — through a clean, interactive interface.  
+It explores how user-constructed circuits can be evaluated and visualized entirely client-side, emphasizing both usability and correct logical resolution.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+![Logic Circuit Simulator Preview](https://raw.githubusercontent.com/Unnamedhat88/Portfolio_3D/main/public/images/proj3.webp)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Core Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Drag-and-Drop Circuit Design** – Intuitive canvas interface for placing and connecting gates.  
+- **Dynamic Wire Connections** – Real-time visual feedback with validation of connection rules.  
+- **Signal Tracing** – Selecting an output highlights all contributing ancestor gates.  
+- **Automatic Truth Table Generation** – Calculates truth tables from the current circuit topology.  
+- **Responsive Layout** – Built with Tailwind for fast rendering and adaptability.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Technical Highlights
+
+### Frontend
+- **React + TypeScript** for componentized logic and strong typing.  
+- **Tailwind CSS** for design consistency and performance.  
+- **Custom Canvas Rendering Engine** for gate positioning and wire drawing.
+
+### Logic Engine
+- Represents components as nodes linked through dependency mappings between sources and dependents.
+- Uses an indegree-based topological traversal (Kahn’s algorithm) to determine valid evaluation order.
+- Supports real-time propagation by re-evaluating only affected nodes when an input changes.
+- Modular design enabling future support for sequential logic.
+
+### UX and Interaction
+- Drag events, hover feedback, and focus states for visual clarity.  
+- Efficient event handling to maintain smooth interactions even on complex layouts.
+
+
+
